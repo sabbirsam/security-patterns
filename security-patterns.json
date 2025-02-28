@@ -86,8 +86,7 @@
         "Function\\s*\\(.*\\)\\s*\\(",
         "setTimeout\\s*\\(\\s*function\\s*\\(\\s*\\)\\s*\\{",
         "new\\s+Function\\s*\\(",
-        "window\\s*\\[\\s*[\\'\\"
-    ]eval[\\'\\"]\\s*\\]",
+        "window\\s*\\[\\s*[\\'\\",
         "\\.ph(?:p[3-7]?|t|tml|ps|ar|ax|p5|p4|ar)",
         "\\.(?:php|php5|php7|phtml|ph|php4|php3|php2|php1|phps|phpt|pht|phar|pgif|phtml|phtm)$",
         "\\.asp(?:x|\\.net)?$",
