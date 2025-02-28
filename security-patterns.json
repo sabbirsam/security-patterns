@@ -1,0 +1,375 @@
+{
+    "dangerous_functions": [
+        {
+            "pattern": "eval(",
+            "description": "Evaluates string as PHP code",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "system(",
+            "description": "Executes an external program and displays output",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "exec(",
+            "description": "Executes an external program",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "shell_exec(",
+            "description": "Executes command via shell and returns complete output as string",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "passthru(",
+            "description": "Executes an external program and displays raw output",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "proc_open(",
+            "description": "Executes a command and opens file pointers for input/output",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "popen(",
+            "description": "Opens process file pointer",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "pcntl_exec(",
+            "description": "Executes program in current process space",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "expect_popen(",
+            "description": "Opens process with expect",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "assert(",
+            "description": "Can be used to evaluate code strings",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "create_function(",
+            "description": "Creates anonymous function (deprecated in PHP 7.2)",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "mb_ereg_replace_callback(",
+            "description": "Multibyte regular expression replace with callback",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "preg_filter(",
+            "description": "Performs a regular expression search and replace",
+            "risk": "medium",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "bzopen(",
+            "description": "Opens a bzip2 compressed file",
+            "risk": "medium",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "`",
+            "description": "Backtick operator executes shell commands",
+            "risk": "high",
+            "category": "command_execution"
+        },
+        {
+            "pattern": "proc_nice(",
+            "description": "Changes process priority",
+            "risk": "medium",
+            "category": "process_manipulation"
+        },
+        {
+            "pattern": "proc_terminate(",
+            "description": "Kills a process opened by proc_open",
+            "risk": "medium",
+            "category": "process_manipulation"
+        },
+        {
+            "pattern": "proc_close(",
+            "description": "Closes a process opened by proc_open",
+            "risk": "medium",
+            "category": "process_manipulation"
+        },
+        {
+            "pattern": "proc_get_status(",
+            "description": "Gets information about a process opened by proc_open",
+            "risk": "medium",
+            "category": "process_manipulation"
+        },
+        {
+            "pattern": "leak_memory(",
+            "description": "Forces memory leak",
+            "risk": "high",
+            "category": "memory_manipulation"
+        },
+        {
+            "pattern": "set_time_limit(",
+            "description": "Limits the maximum execution time",
+            "risk": "medium",
+            "category": "process_manipulation"
+        },
+        {
+            "pattern": "ignore_user_abort(",
+            "description": "Sets whether a client disconnect should abort script execution",
+            "risk": "medium",
+            "category": "process_manipulation"
+        }
+    ],
+    "obfuscation_indicators": [
+        {
+            "pattern": "base64_decode",
+            "description": "Decodes base64 encoded data",
+            "risk": "medium",
+            "category": "encoding"
+        },
+        {
+            "pattern": "gzinflate",
+            "description": "Inflates a deflated string",
+            "risk": "medium",
+            "category": "encoding"
+        },
+        {
+            "pattern": "gzdeflate",
+            "description": "Deflates a string",
+            "risk": "medium",
+            "category": "encoding"
+        },
+        {
+            "pattern": "gzencode",
+            "description": "Creates a gzip compressed string",
+            "risk": "medium",
+            "category": "encoding"
+        },
+        {
+            "pattern": "gzdecode",
+            "description": "Decodes a gzip compressed string",
+            "risk": "medium",
+            "category": "encoding"
+        },
+        {
+            "pattern": "str_rot13",
+            "description": "Performs the rot13 transform on a string",
+            "risk": "medium",
+            "category": "encoding"
+        },
+        {
+            "pattern": "convert_uudecode",
+            "description": "Decode a uuencoded string",
+            "risk": "medium",
+            "category": "encoding"
+        },
+        {
+            "pattern": "fromCharCode",
+            "description": "JavaScript method to convert Unicode values to characters",
+            "risk": "medium",
+            "category": "encoding"
+        },
+        {
+            "pattern": "sodium_crypto_secretbox",
+            "description": "Encrypts a message with Sodium library",
+            "risk": "low",
+            "category": "encryption"
+        },
+        {
+            "pattern": "openssl_encrypt",
+            "description": "Encrypts data with OpenSSL",
+            "risk": "low",
+            "category": "encryption"
+        },
+        {
+            "pattern": "mcrypt_encrypt",
+            "description": "Encrypts plaintext with mcrypt (deprecated)",
+            "risk": "low",
+            "category": "encryption"
+        },
+        {
+            "pattern": "hash_hmac",
+            "description": "Generates a keyed hash value using the HMAC method",
+            "risk": "low",
+            "category": "encryption"
+        },
+        {
+            "pattern": "password_hash",
+            "description": "Creates a password hash",
+            "risk": "low",
+            "category": "encryption"
+        },
+        {
+            "pattern": "crypt",
+            "description": "One-way string hashing",
+            "risk": "low",
+            "category": "encryption"
+        }
+    ],
+    "malware_signatures": [
+        {
+            "pattern": "eval\\s*\\(.*base64_decode\\s*\\(",
+            "description": "Eval with base64 decode - common malware technique",
+            "risk": "high",
+            "category": "code_execution"
+        },
+        {
+            "pattern": "eval\\s*\\(.*gzinflate\\s*\\(",
+            "description": "Eval with gzinflate - common malware technique",
+            "risk": "high",
+            "category": "code_execution"
+        },
+        {
+            "pattern": "eval\\s*\\(.*str_rot13\\s*\\(",
+            "description": "Eval with str_rot13 - common malware technique",
+            "risk": "high",
+            "category": "code_execution"
+        },
+        {
+            "pattern": "eval\\s*\\(.*gzuncompress\\s*\\(",
+            "description": "Eval with gzuncompress - common malware technique",
+            "risk": "high",
+            "category": "code_execution"
+        },
+        {
+            "pattern": "\\$GLOBALS\\[\\$GLOBALS",
+            "description": "Variable variable technique used by malware",
+            "risk": "high",
+            "category": "obfuscation"
+        },
+        {
+            "pattern": "preg_replace\\s*\\(['\"]/.*/e['\"]",
+            "description": "Eval modifier in preg_replace (deprecated in PHP 7.0)",
+            "risk": "high",
+            "category": "code_execution"
+        },
+        {
+            "pattern": "(?:\\\\x[0-9a-f]{2}){4,}",
+            "description": "Hex-encoded strings - common in obfuscated malware",
+            "risk": "high",
+            "category": "obfuscation"
+        },
+        {
+            "pattern": "@include\\s*['\"]\\w+://",
+            "description": "Remote file inclusion",
+            "risk": "high",
+            "category": "file_inclusion"
+        },
+        {
+            "pattern": "data:text/html;base64",
+            "description": "Data URI scheme with HTML - common in XSS",
+            "risk": "high",
+            "category": "xss"
+        },
+        {
+            "pattern": "data:image/jpg;base64",
+            "description": "Data URI scheme with image - may hide malicious code",
+            "risk": "medium",
+            "category": "obfuscation"
+        },
+        {
+            "pattern": "PHPShell",
+            "description": "Common PHP backdoor name",
+            "risk": "high",
+            "category": "backdoor"
+        },
+        {
+            "pattern": "c99shell",
+            "description": "Common PHP backdoor name",
+            "risk": "high",
+            "category": "backdoor"
+        },
+        {
+            "pattern": "r57shell",
+            "description": "Common PHP backdoor name",
+            "risk": "high",
+            "category": "backdoor"
+        },
+        {
+            "pattern": "WSO shell",
+            "description": "Common PHP backdoor name",
+            "risk": "high",
+            "category": "backdoor"
+        }
+    ],
+    "suspicious_behaviors": [
+        {
+            "pattern": "fwrite\\s*\\(\\s*\\$.*\\.ph",
+            "description": "Writing to a PHP file",
+            "risk": "high",
+            "category": "file_operations"
+        },
+        {
+            "pattern": "file_put_contents\\s*\\(\\s*\\$.*\\.ph",
+            "description": "Writing to a PHP file",
+            "risk": "high",
+            "category": "file_operations"
+        },
+        {
+            "pattern": "fputs\\s*\\(\\s*\\$.*\\.ph",
+            "description": "Writing to a PHP file",
+            "risk": "high",
+            "category": "file_operations"
+        },
+        {
+            "pattern": "curl_setopt\\s*\\(\\s*\\$.*CURLOPT_URL",
+            "description": "Setting CURL URL dynamically",
+            "risk": "medium",
+            "category": "network_behavior"
+        },
+        {
+            "pattern": "wget\\s+http",
+            "description": "Executing wget command",
+            "risk": "medium",
+            "category": "network_behavior"
+        },
+        {
+            "pattern": "lynx\\s+http",
+            "description": "Executing lynx command",
+            "risk": "medium",
+            "category": "network_behavior"
+        },
+        {
+            "pattern": "GET\\s+http",
+            "description": "HTTP request in shell context",
+            "risk": "medium",
+            "category": "network_behavior"
+        },
+        {
+            "pattern": "POST\\s+http",
+            "description": "HTTP request in shell context",
+            "risk": "medium",
+            "category": "network_behavior"
+        },
+        {
+            "pattern": "DROP\\s+TABLE",
+            "description": "SQL DROP TABLE command",
+            "risk": "high",
+            "category": "database_manipulation"
+        },
+        {
+            "pattern": "TRUNCATE\\s+TABLE",
+            "description": "SQL TRUNCATE TABLE command",
+            "risk": "high",
+            "category": "database_manipulation"
+        }
+    ],
+    "metadata": {
+        "version": "1.0.0",
+        "last_updated": "2025-02-28",
+        "description": "Security patterns for WordPress plugin security scanning"
+    }
+}
