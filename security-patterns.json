@@ -1,371 +1,209 @@
 {
     "dangerous_functions": [
-        {
-            "pattern": "eval(",
-            "description": "Evaluates string as PHP code",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "system(",
-            "description": "Executes an external program and displays output",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "exec(",
-            "description": "Executes an external program",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "shell_exec(",
-            "description": "Executes command via shell and returns complete output as string",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "passthru(",
-            "description": "Executes an external program and displays raw output",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "proc_open(",
-            "description": "Executes a command and opens file pointers for input/output",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "popen(",
-            "description": "Opens process file pointer",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "pcntl_exec(",
-            "description": "Executes program in current process space",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "expect_popen(",
-            "description": "Opens process with expect",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "assert(",
-            "description": "Can be used to evaluate code strings",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "create_function(",
-            "description": "Creates anonymous function (deprecated in PHP 7.2)",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "mb_ereg_replace_callback(",
-            "description": "Multibyte regular expression replace with callback",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "preg_filter(",
-            "description": "Performs a regular expression search and replace",
-            "risk": "medium",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "bzopen(",
-            "description": "Opens a bzip2 compressed file",
-            "risk": "medium",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "`",
-            "description": "Backtick operator executes shell commands",
-            "risk": "high",
-            "category": "command_execution"
-        },
-        {
-            "pattern": "proc_nice(",
-            "description": "Changes process priority",
-            "risk": "medium",
-            "category": "process_manipulation"
-        },
-        {
-            "pattern": "proc_terminate(",
-            "description": "Kills a process opened by proc_open",
-            "risk": "medium",
-            "category": "process_manipulation"
-        },
-        {
-            "pattern": "proc_close(",
-            "description": "Closes a process opened by proc_open",
-            "risk": "medium",
-            "category": "process_manipulation"
-        },
-        {
-            "pattern": "proc_get_status(",
-            "description": "Gets information about a process opened by proc_open",
-            "risk": "medium",
-            "category": "process_manipulation"
-        },
-        {
-            "pattern": "leak_memory(",
-            "description": "Forces memory leak",
-            "risk": "high",
-            "category": "memory_manipulation"
-        },
-        {
-            "pattern": "set_time_limit(",
-            "description": "Limits the maximum execution time",
-            "risk": "medium",
-            "category": "process_manipulation"
-        },
-        {
-            "pattern": "ignore_user_abort(",
-            "description": "Sets whether a client disconnect should abort script execution",
-            "risk": "medium",
-            "category": "process_manipulation"
-        }
+        "eval(",
+        "system(",
+        "exec(",
+        "shell_exec(",
+        "passthru(",
+        "proc_open(",
+        "popen(",
+        "pcntl_exec(",
+        "expect_popen(",
+        "assert(",
+        "create_function(",
+        "mb_ereg_replace_callback(",
+        "preg_filter(",
+        "bzopen(",
+        "`",
+        "proc_nice(",
+        "proc_terminate(",
+        "proc_close(",
+        "proc_get_status(",
+        "proc_open(",
+        "leak_memory(",
+        "set_time_limit(",
+        "ignore_user_abort(",
+        "memory_limit",
+        "pcntl_alarm(",
+        "pcntl_fork(",
+        "pcntl_signal(",
+        "ini_alter(",
+        "ini_restore(",
+        "dl(",
+        "apache_setenv(",
+        "ini_set(",
+        "mail(",
+        "putenv(",
+        "mb_send_mail(",
+        "define_syslog_variables(",
+        "openlog(",
+        "syslog(",
+        "fsockopen(",
+        "pfsockopen(",
+        "socket_create(",
+        "socket_connect(",
+        "socket_bind(",
+        "socket_listen(",
+        "socket_create_listen(",
+        "socket_create_pair(",
+        "stream_socket_client(",
+        "stream_socket_server(",
+        "ssh2_connect(",
+        "ftp_connect(",
+        "ftp_ssl_connect("
     ],
     "obfuscation_indicators": [
-        {
-            "pattern": "base64_decode",
-            "description": "Decodes base64 encoded data",
-            "risk": "medium",
-            "category": "encoding"
-        },
-        {
-            "pattern": "gzinflate",
-            "description": "Inflates a deflated string",
-            "risk": "medium",
-            "category": "encoding"
-        },
-        {
-            "pattern": "gzdeflate",
-            "description": "Deflates a string",
-            "risk": "medium",
-            "category": "encoding"
-        },
-        {
-            "pattern": "gzencode",
-            "description": "Creates a gzip compressed string",
-            "risk": "medium",
-            "category": "encoding"
-        },
-        {
-            "pattern": "gzdecode",
-            "description": "Decodes a gzip compressed string",
-            "risk": "medium",
-            "category": "encoding"
-        },
-        {
-            "pattern": "str_rot13",
-            "description": "Performs the rot13 transform on a string",
-            "risk": "medium",
-            "category": "encoding"
-        },
-        {
-            "pattern": "convert_uudecode",
-            "description": "Decode a uuencoded string",
-            "risk": "medium",
-            "category": "encoding"
-        },
-        {
-            "pattern": "fromCharCode",
-            "description": "JavaScript method to convert Unicode values to characters",
-            "risk": "medium",
-            "category": "encoding"
-        },
-        {
-            "pattern": "sodium_crypto_secretbox",
-            "description": "Encrypts a message with Sodium library",
-            "risk": "low",
-            "category": "encryption"
-        },
-        {
-            "pattern": "openssl_encrypt",
-            "description": "Encrypts data with OpenSSL",
-            "risk": "low",
-            "category": "encryption"
-        },
-        {
-            "pattern": "mcrypt_encrypt",
-            "description": "Encrypts plaintext with mcrypt (deprecated)",
-            "risk": "low",
-            "category": "encryption"
-        },
-        {
-            "pattern": "hash_hmac",
-            "description": "Generates a keyed hash value using the HMAC method",
-            "risk": "low",
-            "category": "encryption"
-        },
-        {
-            "pattern": "password_hash",
-            "description": "Creates a password hash",
-            "risk": "low",
-            "category": "encryption"
-        },
-        {
-            "pattern": "crypt",
-            "description": "One-way string hashing",
-            "risk": "low",
-            "category": "encryption"
-        }
+        "base64_decode",
+        "gzinflate",
+        "gzdeflate",
+        "gzencode",
+        "gzdecode",
+        "str_rot13",
+        "convert_uudecode",
+        "fromCharCode",
+        "sodium_crypto_secretbox",
+        "openssl_encrypt",
+        "mcrypt_encrypt",
+        "hash_hmac",
+        "password_hash",
+        "crypt",
+        "\\x[0-9a-f]{2}",
+        "\\u[0-9a-f]{4}",
+        "\\[0-7]{3}",
+        "&#x[0-9a-f]{2};",
+        "&#\\d+;",
+        "\\$\\{.\\}",
+        "\\$[a-zA-Z_\\x7f-\\xff][a-zA-Z0-9_\\x7f-\\xff]*\\s*\\(\\s*\\$[a-zA-Z_\\x7f-\\xff]",
+        "eval\\s*\\(",
+        "unescape\\s*\\(",
+        "String\\.fromCharCode",
+        "parseInt\\s*\\(.+?,\\s*16\\)",
+        "atob\\s*\\(",
+        "btoa\\s*\\(",
+        "escape\\s*\\(",
+        "decodeURIComponent\\s*\\(",
+        "encodeURIComponent\\s*\\(",
+        "Function\\s*\\(.*\\)\\s*\\(",
+        "setTimeout\\s*\\(\\s*function\\s*\\(\\s*\\)\\s*\\{",
+        "new\\s+Function\\s*\\(",
+        "window\\s*\\[\\s*[\\'\\"
+    ]eval[\\'\\"]\\s*\\]",
+        "\\.ph(?:p[3-7]?|t|tml|ps|ar|ax|p5|p4|ar)",
+        "\\.(?:php|php5|php7|phtml|ph|php4|php3|php2|php1|phps|phpt|pht|phar|pgif|phtml|phtm)$",
+        "\\.asp(?:x|\\.net)?$",
+        "\\.jsp(?:x|f|p)?$",
+        "\\.(?:sh|bash|zsh|csh|ksh|tcsh|pl|py|rb|exe|dll|scr|vbs|bat|cmd|ps1|psm1|psd1)$"
     ],
     "malware_signatures": [
-        {
-            "pattern": "eval\\s*\\(.*base64_decode\\s*\\(",
-            "description": "Eval with base64 decode - common malware technique",
-            "risk": "high",
-            "category": "code_execution"
-        },
-        {
-            "pattern": "eval\\s*\\(.*gzinflate\\s*\\(",
-            "description": "Eval with gzinflate - common malware technique",
-            "risk": "high",
-            "category": "code_execution"
-        },
-        {
-            "pattern": "eval\\s*\\(.*str_rot13\\s*\\(",
-            "description": "Eval with str_rot13 - common malware technique",
-            "risk": "high",
-            "category": "code_execution"
-        },
-        {
-            "pattern": "eval\\s*\\(.*gzuncompress\\s*\\(",
-            "description": "Eval with gzuncompress - common malware technique",
-            "risk": "high",
-            "category": "code_execution"
-        },
-        {
-            "pattern": "\\$GLOBALS\\[\\$GLOBALS",
-            "description": "Variable variable technique used by malware",
-            "risk": "high",
-            "category": "obfuscation"
-        },
-        {
-            "pattern": "preg_replace\\s*\\(['\"]/.*/e['\"]",
-            "description": "Eval modifier in preg_replace (deprecated in PHP 7.0)",
-            "risk": "high",
-            "category": "code_execution"
-        },
-        {
-            "pattern": "(?:\\\\x[0-9a-f]{2}){4,}",
-            "description": "Hex-encoded strings - common in obfuscated malware",
-            "risk": "high",
-            "category": "obfuscation"
-        },
-        {
-            "pattern": "@include\\s*['\"]\\w+://",
-            "description": "Remote file inclusion",
-            "risk": "high",
-            "category": "file_inclusion"
-        },
-        {
-            "pattern": "data:text/html;base64",
-            "description": "Data URI scheme with HTML - common in XSS",
-            "risk": "high",
-            "category": "xss"
-        },
-        {
-            "pattern": "data:image/jpg;base64",
-            "description": "Data URI scheme with image - may hide malicious code",
-            "risk": "medium",
-            "category": "obfuscation"
-        },
-        {
-            "pattern": "PHPShell",
-            "description": "Common PHP backdoor name",
-            "risk": "high",
-            "category": "backdoor"
-        },
-        {
-            "pattern": "c99shell",
-            "description": "Common PHP backdoor name",
-            "risk": "high",
-            "category": "backdoor"
-        },
-        {
-            "pattern": "r57shell",
-            "description": "Common PHP backdoor name",
-            "risk": "high",
-            "category": "backdoor"
-        },
-        {
-            "pattern": "WSO shell",
-            "description": "Common PHP backdoor name",
-            "risk": "high",
-            "category": "backdoor"
-        }
+        "eval\\s*\\(.*base64_decode\\s*\\(",
+        "eval\\s*\\(.*gzinflate\\s*\\(",
+        "eval\\s*\\(.*str_rot13\\s*\\(",
+        "eval\\s*\\(.*gzuncompress\\s*\\(",
+        "\\$GLOBALS\\[\\$GLOBALS",
+        "preg_replace\\s*\\([\\'\\\"]/.*/e[\\'\\\"]",
+        "(?:\\\\x[0-9a-f]{2}){4,}",
+        "@include\\s*[\\'\\\"]\\w+://",
+        "data:text/html;base64",
+        "data:image/jpg;base64",
+        "PHPShell",
+        "c99shell",
+        "r57shell",
+        "WSO shell",
+        "composer\\.json\\s+modification",
+        "package\\.json\\s+modification",
+        "vendor\\/.*\\/.*\\.php\\s+modification",
+        "node_modules\\/.*\\/.*\\.js\\s+modification",
+        "coinhive",
+        "cryptonight",
+        "webassembly",
+        "wasmjit",
+        "cryptoloot",
+        "deepminer",
+        "coin-hive",
+        "jsecoin",
+        "minero",
+        "coinimp",
+        "webmine",
+        "monerominer",
+        "cryptojacking",
+        "monero",
+        "pool.supportxmr.com",
+        "xmrig",
+        "nanopool",
+        "minergate",
+        "nicehash",
+        "\\.locked$",
+        "\\.encrypted$",
+        "\\.crypto$",
+        "\\.crypt$",
+        "DECRYPT_INSTRUCTION",
+        "HOW_TO_DECRYPT",
+        "YOUR_FILES_ARE_ENCRYPTED",
+        "YOUR_FILES_ARE_LOCKED",
+        "backdoor",
+        "rootkit",
+        "webshell",
+        "reverse shell",
+        "netcat",
+        "bind shell",
+        "reverse_tcp",
+        "meterpreter",
+        "remote access",
+        "remote control",
+        "remoteview",
+        "move_uploaded_file\\s*\\(.*\\.ph",
+        "move_uploaded_file\\s*\\(.*\\.asp",
+        "move_uploaded_file\\s*\\(.*\\.jsp",
+        "move_uploaded_file\\s*\\(.*\\.cgi",
+        "UNION\\s+SELECT",
+        "UNION\\s+ALL\\s+SELECT",
+        "INSERT\\s+INTO.*SELECT",
+        "UPDATE.*SET.*SELECT",
+        "DELETE\\s+FROM.*WHERE.*SELECT",
+        "<script.*?>.*?<\\/script>",
+        "javascript:",
+        "vbscript:",
+        "livescript:",
+        "onload=",
+        "onerror=",
+        "onmouseover=",
+        "include\\s*\\(\\s*[\\'\\\"](https?|ftp)://",
+        "require\\s*\\(\\s*[\\'\\\"](https?|ftp)://",
+        "Angler",
+        "BlackHole",
+        "Nuclear",
+        "Magnitude",
+        "RIG",
+        "Terror",
+        "GrandSoft",
+        "KaiXin",
+        "Spelevo",
+        "Fallout",
+        "GreenFlash",
+        "Underminer"
     ],
     "suspicious_behaviors": [
-        {
-            "pattern": "fwrite\\s*\\(\\s*\\$.*\\.ph",
-            "description": "Writing to a PHP file",
-            "risk": "high",
-            "category": "file_operations"
-        },
-        {
-            "pattern": "file_put_contents\\s*\\(\\s*\\$.*\\.ph",
-            "description": "Writing to a PHP file",
-            "risk": "high",
-            "category": "file_operations"
-        },
-        {
-            "pattern": "fputs\\s*\\(\\s*\\$.*\\.ph",
-            "description": "Writing to a PHP file",
-            "risk": "high",
-            "category": "file_operations"
-        },
-        {
-            "pattern": "curl_setopt\\s*\\(\\s*\\$.*CURLOPT_URL",
-            "description": "Setting CURL URL dynamically",
-            "risk": "medium",
-            "category": "network_behavior"
-        },
-        {
-            "pattern": "wget\\s+http",
-            "description": "Executing wget command",
-            "risk": "medium",
-            "category": "network_behavior"
-        },
-        {
-            "pattern": "lynx\\s+http",
-            "description": "Executing lynx command",
-            "risk": "medium",
-            "category": "network_behavior"
-        },
-        {
-            "pattern": "GET\\s+http",
-            "description": "HTTP request in shell context",
-            "risk": "medium",
-            "category": "network_behavior"
-        },
-        {
-            "pattern": "POST\\s+http",
-            "description": "HTTP request in shell context",
-            "risk": "medium",
-            "category": "network_behavior"
-        },
-        {
-            "pattern": "DROP\\s+TABLE",
-            "description": "SQL DROP TABLE command",
-            "risk": "high",
-            "category": "database_manipulation"
-        },
-        {
-            "pattern": "TRUNCATE\\s+TABLE",
-            "description": "SQL TRUNCATE TABLE command",
-            "risk": "high",
-            "category": "database_manipulation"
-        }
+        "fwrite\\s*\\(\\s*\\$.*\\.ph",
+        "file_put_contents\\s*\\(\\s*\\$.*\\.ph",
+        "fputs\\s*\\(\\s*\\$.*\\.ph",
+        "curl_setopt\\s*\\(\\s*\\$.*CURLOPT_URL",
+        "wget\\s+http",
+        "lynx\\s+http",
+        "GET\\s+http",
+        "POST\\s+http",
+        "DROP\\s+TABLE",
+        "TRUNCATE\\s+TABLE",
+        "ALTER\\s+TABLE.*DROP",
+        "DELETE\\s+FROM\\s+wp_",
+        "wp_insert_user\\s*\\(\\s*array\\s*\\(",
+        "wp_set_auth_cookie\\s*\\(\\s*\\$",
+        "wp_set_current_user\\s*\\(\\s*\\$",
+        "activate_plugin\\s*\\(\\s*\\$",
+        "switch_theme\\s*\\(\\s*\\$",
+        "wp_update_plugin\\s*\\(\\s*\\$",
+        "update_option\\s*\\(\\s*\\$",
+        "add_option\\s*\\(\\s*\\$",
+        "delete_option\\s*\\(\\s*\\$"
     ],
     "metadata": {
         "version": "1.0.0",
